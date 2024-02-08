@@ -50,5 +50,7 @@ def health_check():
     return 'Alive'
 
 
-# UNENCRYPTED! This should not be used in production. You should give the "app" a ssl_context or set up a reverse-proxy.
-serve(app, host="0.0.0.0", port=8090)
+if __name__ == "__main__":
+    # UNENCRYPTED! This should not be used in production. You should give the "app" a ssl_context or set up a reverse-proxy.
+    serve(app, host="0.0.0.0", port=8080)
+

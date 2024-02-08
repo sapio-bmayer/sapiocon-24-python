@@ -1,0 +1,12 @@
+.gitignore
+.git
+
+.dockerignore
+Dockerfile
+
+terraform
+
+venv
+__pycache__
+
+.idea

@@ -1,11 +1,11 @@
-# sapiocon-23-python
+# sapiocon-24-python
 
 [![License](https://img.shields.io/pypi/l/sapiopylib.svg)](https://github.com/sapiosciences/sapio-py-tutorials/blob/master/LICENSE)
 
 ## What is it
 
 This project contains the Sapio Python Webhook examples that were shown
-at [SAPIOCON 2023](https://www.sapiosciences.com/sapiocon)
+at [SAPIOCON 2024](https://www.sapiosciences.com/sapiocon)
 
 ### What is included
 
