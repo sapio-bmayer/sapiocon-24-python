@@ -9,7 +9,7 @@ at [SAPIOCON 2024](https://www.sapiosciences.com/sapiocon)
 
 ### What is included
 
-`SAPIOCON23.ssg` is a synergy that contains a SapioCon23 data type that is designed to be used with the action button
+`SAPIOCON.ssg` is a synergy that contains a SapioCon23 data type that is designed to be used with the action button
 and selection list examples here
 
 `server.py` is the entry point for the python server that will host the webhook. It will configure the server and then
