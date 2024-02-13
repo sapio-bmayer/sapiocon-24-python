@@ -13,6 +13,12 @@ ADD . /app/
 USER sapio
 WORKDIR /app
 
+# This is specific to waitress. Not gunicorn. If this is set to True the server hot-reload your code when it changes.
+ENV SapioWebhooksDebug=False
+
+# When set to True, the server will not verify the SSL certificate of the webhook server. This is useful for doing local development.
+ENV SapioWebhooksInsecure=False
+
 
 # Open 8080 and run the server.
 EXPOSE 8080

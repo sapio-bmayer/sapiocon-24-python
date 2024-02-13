@@ -1,3 +1,5 @@
+import os
+
 from sapiopylib.rest.WebhookService import WebhookConfiguration, WebhookServerFactory
 
 from webhook.action_button import DemoActionButtonHandler
@@ -11,7 +13,12 @@ from waitress import serve
 from webhook.record_model import RecordModelExampleHandler
 
 # Create the Sapio webhook configuration that will handle the processing of
-config: WebhookConfiguration = WebhookConfiguration(verify_sapio_cert=False, debug=True)
+config: WebhookConfiguration = WebhookConfiguration(verify_sapio_cert=True, debug=False)
+
+
+if os.environ.get('SapioWebhooksInsecure') == "True":
+    config.verify_sapio_cert = False
+
 config.register('/hello_world', HelloWorldWebhookHandler)
 config.register('/load_inst_data', LoadInstrumentDataHandler)
 config.register('/available_technicians', GetAvailableTechnicians)
@@ -52,5 +59,8 @@ def health_check():
 
 if __name__ == "__main__":
     # UNENCRYPTED! This should not be used in production. You should give the "app" a ssl_context or set up a reverse-proxy.
-    serve(app, host="0.0.0.0", port=8080)
+    if os.environ.get('SapioWebhooksDebug') == "True":
+        app.run(host="0.0.0.0", port=8080, debug=True)
+    else:
+        serve(app, host="0.0.0.0", port=8080)
 
