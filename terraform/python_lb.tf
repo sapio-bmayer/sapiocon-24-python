@@ -25,7 +25,7 @@ resource "aws_security_group" "sapioexamples_lb_sg" {
   }
 }
 
-
+# Setup the loadbalancer to be used by the sapiocon24 subdomain
 module "sapioexamples_lb" {
   source = "./base_https_lb"
 
@@ -46,7 +46,7 @@ module "sapioexamples_lb" {
   vpc_id                  = module.sapioexamples_vpc.vpc_id
 }
 
-
+# Setup the target group for the sapiocon container that will be used by the listener rule
 resource "aws_lb_target_group" "sapiocon24" {
   name = "${var.resource_prefix}SapioCon24Tg8080"
 
@@ -77,6 +77,8 @@ resource "aws_lb_target_group" "sapiocon24" {
     env = var.env_tag
   }
 }
+
+# Setup a listener rule for the sapiocon24 subdomain to forward to the sapiocon container
 resource "aws_lb_listener_rule" "sapiocon_rule" {
   listener_arn = module.sapioexamples_lb.frontend_arn
 

@@ -44,3 +44,9 @@ variable "subnets" {
   type        = list(string)
   description = "The subnets for load balancer to listen on"
 }
+
+variable "lb_port" {
+    type        = number
+    description = "The port the load balancer will listen on"
+    default = 443
+}

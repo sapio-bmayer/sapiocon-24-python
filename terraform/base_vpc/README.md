@@ -1,0 +1,2 @@
+This terraform module is describing a simple VPC stack with a subnet, public internet gateway, and all the routing to go
+with it. It is a good starting point for a new VPC, but may need to be customized for your specific needs.

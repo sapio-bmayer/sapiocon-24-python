@@ -10,8 +10,8 @@ resource "aws_security_group" "base_lb_sg" {
 
   ingress {
     description = "Allow all to access HTTPS"
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.lb_port
+    to_port     = var.lb_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -66,7 +66,7 @@ resource "aws_lb" "base_lb" {
 
 resource "aws_lb_listener" "https_front_end" {
   load_balancer_arn = aws_lb.base_lb.arn
-  port              = "443"
+  port              = var.lb_port
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = aws_acm_certificate.load_balancer.arn

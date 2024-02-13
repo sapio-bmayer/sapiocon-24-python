@@ -1,3 +1,5 @@
+
+# Host the SapioCon24 service on ECS Fargate
 module "sapiocon24" {
   source = "./base_ecs_fargate_service"
 
