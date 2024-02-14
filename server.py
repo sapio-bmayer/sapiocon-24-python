@@ -22,16 +22,16 @@ config: WebhookConfiguration = WebhookConfiguration(verify_sapio_cert=True, debu
 if os.environ.get('SapioWebhooksInsecure') == "True":
     config.verify_sapio_cert = False
 
-config.register('/23/hello_world', HelloWorldWebhookHandler)
-config.register('/23/load_inst_data', LoadInstrumentDataHandler)
-config.register('/23/available_technicians', GetAvailableTechnicians)
-config.register('/23/home_worlds', GetHomeWorldList)
-config.register('/23/action_button', DemoActionButtonHandler)
-config.register('/23/record_model', RecordModelExampleHandler)
-config.register('/23/custom_report', CustomReportExampleHandler)
-config.register('/24/eln_rule', ELNRuleExample)
-config.register('/24/main_toolbar', MainToolbarExample)
-config.register('/24/table_toolbar', TableToolbarExample)
+config.register('/2023/hello_world', HelloWorldWebhookHandler)
+config.register('/2023/load_inst_data', LoadInstrumentDataHandler)
+config.register('/2023/available_technicians', GetAvailableTechnicians)
+config.register('/2023/home_worlds', GetHomeWorldList)
+config.register('/2023/action_button', DemoActionButtonHandler)
+config.register('/2023/record_model', RecordModelExampleHandler)
+config.register('/2023/custom_report', CustomReportExampleHandler)
+config.register('/2024/eln-rule-example', ELNRuleExample)
+config.register('/2024/main-toolbar-example', MainToolbarExample)
+config.register('/2024/table-toolbar-example', TableToolbarExample)
 
 
 # Create a flask application with the Sapio Webhook configuration
