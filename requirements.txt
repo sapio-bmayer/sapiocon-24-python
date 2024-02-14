@@ -1,4 +1,4 @@
-sapiopylib~=2023.2.13.113
+sapiopylib~=2023.12.13.174
 waitress~=2.0.0
 markdown
 gunicorn==21.2.0
