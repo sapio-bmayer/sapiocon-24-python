@@ -2,6 +2,9 @@ import os
 
 from sapiopylib.rest.WebhookService import WebhookConfiguration, WebhookServerFactory
 
+from webhook.twenty_four.ELNRuleExample import ELNRuleExample
+from webhook.twenty_four.MainToolbarExample import MainToolbarExample
+from webhook.twenty_four.TableToolbarExample import TableToolbarExample
 from webhook.twenty_three.action_button import DemoActionButtonHandler
 from webhook.twenty_three.custom_report import CustomReportExampleHandler
 from webhook.twenty_three.list_technicians import GetAvailableTechnicians
@@ -19,13 +22,16 @@ config: WebhookConfiguration = WebhookConfiguration(verify_sapio_cert=True, debu
 if os.environ.get('SapioWebhooksInsecure') == "True":
     config.verify_sapio_cert = False
 
-config.register('/hello_world', HelloWorldWebhookHandler)
-config.register('/load_inst_data', LoadInstrumentDataHandler)
-config.register('/available_technicians', GetAvailableTechnicians)
-config.register('/home_worlds', GetHomeWorldList)
-config.register('/action_button', DemoActionButtonHandler)
-config.register('/record_model', RecordModelExampleHandler)
-config.register('/custom_report', CustomReportExampleHandler)
+config.register('/23/hello_world', HelloWorldWebhookHandler)
+config.register('/23/load_inst_data', LoadInstrumentDataHandler)
+config.register('/23/available_technicians', GetAvailableTechnicians)
+config.register('/23/home_worlds', GetHomeWorldList)
+config.register('/23/action_button', DemoActionButtonHandler)
+config.register('/23/record_model', RecordModelExampleHandler)
+config.register('/23/custom_report', CustomReportExampleHandler)
+config.register('/24/eln_rule', ELNRuleExample)
+config.register('/24/main_toolbar', MainToolbarExample)
+config.register('/24/table_toolbar', TableToolbarExample)
 
 
 # Create a flask application with the Sapio Webhook configuration
