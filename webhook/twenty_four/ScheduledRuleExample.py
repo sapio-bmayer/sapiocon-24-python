@@ -35,6 +35,6 @@ class ScheduledRuleExample(AbstractWebhookHandler):
         for sample in second_half:
             sample.set_ExemplarSampleStatus_field("Ready for - Brodi")
 
-        # Store the changes made to the sample models.
+        # Commit the changes made to the sample models.
         rec_man.store_and_commit()
         return SapioWebhookResult(True)
