@@ -51,7 +51,7 @@ This project depends on [sapiopylib](https://pypi.org/project/sapiopylib/)
 For the `ROOT` `/` path to load it depends on the [markdown](https://pypi.org/project/Markdown/) package being installed
 to generate the HTML
 
-For SAPIOCON 23 we ran it on render.com for ease of use, but you can run it locally or anywhere you can run python and
+For SAPIOCON 24 we ran it on render.com for ease of use, but you can run it locally or anywhere you can run python and
 host a webserver as long as your Sapio System can reach it.
 
 ## Building
@@ -101,8 +101,7 @@ If you have support contract with Sapio Sciences, please use our technical suppo
 
 If you have any questions about how to use sapiopylib, please visit our tutorial page.
 
-If you would like to report an issue on sapiocon-23-python please feel free to create a issue ticket at the tutorial
-github.
+If you would like to report an issue on sapiocon-24-python please feel free to create a issue ticket.
 
 ## About Us
 
