@@ -72,9 +72,12 @@ flushed before being shown.
 
 For development of your own custom webhooks we recommend starting with at least 1vCPU and 2gb RAM. Since machine requirements are highly dependent on what your custom code is doing it's recommended to monitor system metrics and scale the server based on need. You can use any OS that can run Python 3, but for server hosting we use Ubuntu 22.04 and if using docker we use the `python:3-slim` docker python image from the public [Docker Repo](https://hub.docker.com/_/python).
 
-
 ## Deploying to AWS/Production
-For an example of how we recommend a production setup of a webhook server we've included a `Dockerfile`, a `build.sh` and an example `terraform` directory that will build out an AWS infrastructure that includes the following resources
+
+For an example of how we recommend a production setup of a webhook server we've included a `Dockerfile`, a `build.sh` to
+build & publish the docker image and an example `terraform` directory that will build out an AWS infrastructure that
+includes the following resources
+
 - VPC
   - Subnets across Multiple Availability Zones for High Availability
   - Security Groups to control traffic to the Load Balancer
