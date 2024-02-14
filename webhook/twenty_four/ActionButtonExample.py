@@ -4,7 +4,7 @@ from sapiopylib.rest.pojo.webhook.WebhookResult import SapioWebhookResult
 from sapiopylib.rest.utils.recordmodel.RecordModelManager import RecordModelManager
 from sapiopylib.rest.utils.recordmodel.RelationshipPath import RelationshipPath
 
-from webhook.data_type_models import SampleModel, PlateModel, QCDatumModel
+from webhook.data_type_models import SampleModel, PlateModel
 
 
 class ActionButtonExample(AbstractWebhookHandler):
@@ -25,11 +25,11 @@ class ActionButtonExample(AbstractWebhookHandler):
 
         # Using the instance manager, we can create new records which we can change and relate to other records,
         # all without making any webservice requests.
-        datum: QCDatumModel = inst_man.add_new_record(QCDatumModel)
-        sample.add_child(datum)
+        results: SampleModel = inst_man.add_new_record_of_type(SampleModel)
+        sample.add_child(results)
 
         # This endpoint could then call an endpoint elsewhere that runs analysis on the gathered information.
-        self.run_analysis_api(sample, plate, plate_samples, datum)
+        self.run_analysis_api(sample, plate, plate_samples, results)
 
         # Commit any record model changes that were made by this webhook, from field updates to relationship changes to
         # the creation of new records entirely.
@@ -37,10 +37,10 @@ class ActionButtonExample(AbstractWebhookHandler):
         return SapioWebhookResult(True)
 
     @staticmethod
-    def run_analysis_api(sample, plate, plate_samples, datum):
+    def run_analysis_api(sample, plate, plate_samples, results):
         # Imagine this function built a payload and sent it to an endpoint on another system.
         # response = requests.post(url="https://FancyAnalysis.com/sample", json={"Sample": sample,
         #                                                                        "Plate": plate,
         #                                                                        "Plate Samples": plate_samples,
-        #                                                                        "Datum": datum})
+        #                                                                        "Results": results})
         sample.set_ExemplarSampleStatus_field("Analyzed :)")

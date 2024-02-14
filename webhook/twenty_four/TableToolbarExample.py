@@ -1,7 +1,9 @@
+import time
+
 from sapiopylib.rest.WebhookService import AbstractWebhookHandler
 from sapiopylib.rest.pojo.eln.ElnExperiment import InitializeNotebookExperimentPojo, ElnTemplate, \
     TemplateExperimentQueryPojo, ElnExperiment
-from sapiopylib.rest.pojo.eln.ExperimentEntry import ExperimentEntry
+from sapiopylib.rest.pojo.eln.ExperimentEntryCriteria import AbstractElnEntryUpdateCriteria
 from sapiopylib.rest.pojo.webhook.WebhookContext import SapioWebhookContext
 from sapiopylib.rest.pojo.webhook.WebhookDirective import ElnExperimentDirective
 from sapiopylib.rest.pojo.webhook.WebhookResult import SapioWebhookResult
@@ -22,6 +24,9 @@ class TableToolbarExample(AbstractWebhookHandler):
         # samples step. This means that the samples entry will already be populated when we get to it.
         samples_entry: ElnEntryStep = entries.get("Samples")
         samples_entry.set_records(context.data_record_list)
+        criteria = AbstractElnEntryUpdateCriteria(samples_entry.eln_entry.entry_type)
+        criteria.template_item_fulfilled_timestamp = int(time.time() * 1000)
+        context.eln_manager.update_experiment_entry(protocol.get_id(), samples_entry.get_id(), criteria)
         samples_entry.complete_step()
 
         # Once again direct the user to the experiment.
