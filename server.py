@@ -2,15 +2,15 @@ import os
 
 from sapiopylib.rest.WebhookService import WebhookConfiguration, WebhookServerFactory
 
-from webhook.action_button import DemoActionButtonHandler
-from webhook.custom_report import CustomReportExampleHandler
-from webhook.list_technicians import GetAvailableTechnicians
-from webhook.hello_world import HelloWorldWebhookHandler
-from webhook.list_homeworlds import GetHomeWorldList
-from webhook.load_instrument_data import LoadInstrumentDataHandler
+from webhook.twenty_three.action_button import DemoActionButtonHandler
+from webhook.twenty_three.custom_report import CustomReportExampleHandler
+from webhook.twenty_three.list_technicians import GetAvailableTechnicians
+from webhook.twenty_three.hello_world import HelloWorldWebhookHandler
+from webhook.twenty_three.list_homeworlds import GetHomeWorldList
+from webhook.twenty_three.load_instrument_data import LoadInstrumentDataHandler
+from webhook.twenty_three.record_model import RecordModelExampleHandler
 from waitress import serve
 
-from webhook.record_model import RecordModelExampleHandler
 
 # Create the Sapio webhook configuration that will handle the processing of
 config: WebhookConfiguration = WebhookConfiguration(verify_sapio_cert=True, debug=False)
