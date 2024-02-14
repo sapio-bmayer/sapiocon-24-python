@@ -2,8 +2,10 @@ import os
 
 from sapiopylib.rest.WebhookService import WebhookConfiguration, WebhookServerFactory
 
+from webhook.twenty_four.ActionButtonExample import ActionButtonExample
 from webhook.twenty_four.ELNRuleExample import ELNRuleExample
 from webhook.twenty_four.MainToolbarExample import MainToolbarExample
+from webhook.twenty_four.ScheduledRuleExample import ScheduledRuleExample
 from webhook.twenty_four.TableToolbarExample import TableToolbarExample
 from webhook.twenty_three.action_button import DemoActionButtonHandler
 from webhook.twenty_three.custom_report import CustomReportExampleHandler
@@ -29,9 +31,11 @@ config.register('/2023/home_worlds', GetHomeWorldList)
 config.register('/2023/action_button', DemoActionButtonHandler)
 config.register('/2023/record_model', RecordModelExampleHandler)
 config.register('/2023/custom_report', CustomReportExampleHandler)
-config.register('/2024/eln-rule-example', ELNRuleExample)
 config.register('/2024/main-toolbar-example', MainToolbarExample)
+config.register('/2024/eln-rule-example', ELNRuleExample)
 config.register('/2024/table-toolbar-example', TableToolbarExample)
+config.register('/2024/scheduled-rule-example', ScheduledRuleExample)
+config.register('/2024/action-button-example', ActionButtonExample)
 
 
 # Create a flask application with the Sapio Webhook configuration
