@@ -19,7 +19,7 @@ module "sapiocon24" {
   container_port = 8080
 
   task_def = {
-    image  = "sapiosciences/sapiocon24:20240213.2254"
+    image  = "sapiosciences/sapiocon24:20240213.2334"
     cpu    = 1
     memory = 2
 
