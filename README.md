@@ -25,6 +25,8 @@ start it
 
 `webhook/2024/TableToolbarExample.py` is an example of a Samples toolbar button where an experiment from a template will be created, adding the selected samples to it, and returning a client directive to it
 
+`webhook/2024/StandaloneWebserviceExample.py` is an example of a standalone tool making a call to the Sapio REST API without being invoked by a webhook
+
 `webhook/2023/action_button.py` is an example of a webhook that will be called when a user clicks on an action button in the
 UI. This webhook shows an example of how showing a client callback works
 
